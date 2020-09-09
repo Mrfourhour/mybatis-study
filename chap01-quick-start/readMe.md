@@ -134,3 +134,4 @@ public class MyTest {
     </resources>
 </build>
 ```
+## 7. 当使用MySQL8.0以上版本的时候,若MySQL服务器重启过,再次连接MySQL的时候会出现Public Key Retrieval is not allowed此时需要再URL后面加上allowPublicKeyRetrieval=true
