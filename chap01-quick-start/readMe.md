@@ -121,7 +121,7 @@ public class MyTest {
 
     </dependencies>
 ```
-## 6.当mybatis的主配置文件不在类路径下的时候,在pom文件中加上
+## 6.当mybatis的mapper配置文件不在类路径下的时候,在pom文件中加上
 ```xml
 <build>
     <resources>
