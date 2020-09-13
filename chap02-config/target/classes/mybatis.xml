@@ -10,8 +10,83 @@
     jdbc.username=root
     jdbc.password=123456
     配置文件的信息,通过${jdbc.driver}...来获取
+    重要: xml中存在5个转义字符
+        <   &lt;
+        >   &gt;
+        &   $amp;
+        "   &quot;
+        空格 &nbsp;
     -->
     <properties resource="jdbc.properties"/>
+
+
+
+    <!--
+        These are extremely important tweaks that modify the way that MyBatis behaves at runtime.
+        An example of the settings element fully configured is as follows:
+    -->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="useGeneratedKeys" value="false"/>
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+        <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <setting name="defaultStatementTimeout" value="25"/>
+        <setting name="defaultFetchSize" value="100"/>
+        <setting name="safeRowBoundsEnabled" value="false"/>
+        <setting name="mapUnderscoreToCamelCase" value="false"/>
+        <setting name="localCacheScope" value="SESSION"/>
+        <setting name="jdbcTypeForNull" value="OTHER"/>
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+    </settings>
+
+
+    <!--
+    1. A type alias is simply a shorter name for a Java type. It's only relevant to the XML configuration and simply exists to reduce redundant typing of fully qualified classnames. For example:
+    -->
+<!--    <typeAliases>-->
+<!--        <typeAlias alias="Author" type="domain.blog.Author"/>-->
+<!--        <typeAlias alias="Blog" type="domain.blog.Blog"/>-->
+<!--        <typeAlias alias="Comment" type="domain.blog.Comment"/>-->
+<!--        <typeAlias alias="Post" type="domain.blog.Post"/>-->
+<!--        <typeAlias alias="Section" type="domain.blog.Section"/>-->
+<!--        <typeAlias alias="Tag" type="domain.blog.Tag"/>-->
+<!--    </typeAliases>-->
+
+    <!--
+    2. With this configuration, Blog can now be used anywhere that domain.blog.Blog could be.
+    You can also specify a package where MyBatis will search for beans. For example:
+    -->
+    <typeAliases>
+        <package name="domain.blog"/>
+    </typeAliases>
+
+
+    <!--
+    3. Each bean found in domain.blog , if no annotation is found, will be registered as an alias
+    using uncapitalized non-qualified class name of the bean.
+    That is domain.blog.Author will be registered as author.
+    If the @Alias annotation is found its value will be used as an alias. See the example below:
+
+    @Alias("author") public class Author {    ... }
+    -->
+
+    <!--
+       4. There are many built-in type aliases for common Java types. They are all case insensitive,
+        note the special handling of primitives due to the overloaded names.
+        _byte byte
+        _long long
+        _short short
+        _int int
+        _integer int
+        _double double
+        _float float
+        _boolean boolean
+    -->
+
 
     <environments default="development">
         <environment id="development">
