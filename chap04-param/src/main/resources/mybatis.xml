@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+<!--    第一种：使用相对路径进行配置。示例代码如下：
+    <mappers>
+    <mapper resource="org/mybatis/mappers/UserMapper.xml"/>
+    <mapper resource="org/mybatis/mappers/ProductMapper.xml"/>
+    <mapper resource="org/mybatis/mappers/ManagerMapper.xml"/>
+</mappers>
+-->
+
+<!--    第二种：使用绝对路径进行配置。示例代码如下：
+
+<mappers>
+    <mapper url="file:///var/mappers/UserMapper.xml"/>
+    <mapper url="file:///var/mappers/ProductMapper.xml"/>
+    <mapper url="file:///var/mappers/ManagerMapper.xml"/>
+</mappers>
+-->
+
+<!--    第三种：使用接口信息进行配置。示例代码如下：
+<mappers>
+    <mapper class="org.mybatis.mappers.UserMapper"/>
+    <mapper class="org.mybatis.mappers.ProductMapper"/>
+    <mapper class="org.mybatis.mappers.ManagerMapper"/>
+</mappers>
+-->
+
+<!--    第四种：使用接口所在包进行配置。示例如下：  放在同一目录下
+<mappers>
+    <package name="org.mybatis.mappers"/>
+</mappers>
+-->
+    <mappers>
+        <package name="com.xinyet.param.mapper"/>
+<!--        <mapper resource="mapper/DepartmentMapper.xml"/>-->
+<!--        <mapper resource="mapper/EmployeeMapper.xml"/>-->
+    </mappers>
+
+</configuration>
