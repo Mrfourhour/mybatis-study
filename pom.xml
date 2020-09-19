@@ -12,6 +12,8 @@
         <module>chap01-quick-start</module>
         <module>chap02-config</module>
         <module>chap03-simple-CRUD</module>
+        <module>chap04-param</module>
+        <module>chap05-generator</module>
     </modules>
 
 
