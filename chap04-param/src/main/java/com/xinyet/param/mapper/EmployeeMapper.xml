@@ -6,4 +6,17 @@
     <select id="getEmployees" resultType="com.xinyet.param.entity.Employee">
         select * from employee
     </select>
+
+    <select id="getEmployeeById" resultType="com.xinyet.param.entity.Employee">
+        select * from employee where id = #{id}
+    </select>
+
+    <select id="getEmployeeByIdAndName" resultType="com.xinyet.param.entity.Employee">
+        select * from employee where id = #{id} and name = #{name}
+    </select>
+
+
+    <select id="getEmployeeByTo" resultType="com.xinyet.param.entity.Employee">
+        select * from employee where id = #{id} and name = #{name}
+    </select>
 </mapper>
